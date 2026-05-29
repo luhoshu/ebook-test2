@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>零墜落戰術：消防高處作業安全指引</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --paper: #fffdf8;
+      --ink: #24201c;
+      --muted: #766a5b;
+      --accent: #22395f;
+      --accent-2: #b9872f;
+      --border: rgba(90, 65, 35, 0.16);
+      --shadow: rgba(55, 35, 16, 0.16);
+      --font-size: 20px;
+      --line-height: 1.85;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(34, 57, 95, 0.96);
+      color: white;
+      box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    }
+    .topbar-title {
+      flex: 1;
+      min-width: 0;
+      font-weight: 900;
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .topbar button, .topbar select {
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,.95);
+      color: #17253f;
+      min-height: 38px;
+      padding: 0 12px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .layout {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 22px 16px 90px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 20px;
+    }
+    .toc {
+      position: sticky;
+      top: 64px;
+      align-self: start;
+      max-height: calc(100vh - 88px);
+      overflow: auto;
+      background: rgba(255,253,248,.9);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 12px 34px var(--shadow);
+    }
+    .toc h2 { margin: 0 0 12px; font-size: 18px; color: var(--accent); }
+    .toc button {
+      display: block;
+      width: 100%;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      background: transparent;
+      color: var(--ink);
+      text-align: left;
+      font-size: 15px;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+    .toc button.active {
+      background: #eef3fb;
+      border-color: rgba(34,57,95,.18);
+      color: var(--accent);
+      font-weight: 900;
+    }
+    .cover {
+      min-height: calc(100vh - 128px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 16px;
+    }
+    .cover:not(.active) { display: none; }
+    .cover-card {
+      width: min(720px, 100%);
+      min-height: 760px;
+      padding: 64px 48px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,0)), linear-gradient(145deg, #143c79, #0b1d42);
+      color: white;
+      box-shadow: 0 28px 70px rgba(30,20,10,.26);
+      border: 2px solid rgba(219,195,145,.48);
+      text-align: center;
+    }
+    .cover-badge {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: #132746;
+      font-weight: 900;
+      letter-spacing: .2em;
+      margin-bottom: 120px;
+    }
+    .cover-title {
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1.35;
+      font-weight: 900;
+      margin-bottom: 140px;
+    }
+    .cover-author { color: #f4e0b6; font-size: 24px; line-height: 1.6; }
+    .chapter {
+      display: none;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 16px 42px var(--shadow);
+      padding: 36px;
+    }
+    .chapter.active { display: block; }
+    .chapter-header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+    }
+    .chapter-title {
+      margin: 0;
+      color: var(--accent);
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.3;
+    }
+    .audio-card {
+      margin: 22px 0 28px;
+      padding: 16px;
+      border-radius: 18px;
+      background: #f3ebdd;
+      border: 1px solid var(--border);
+    }
+    .audio-card audio { width: 100%; height: 44px; display: block; }
+    .chapter-body { font-size: var(--font-size); line-height: var(--line-height); }
+    .chapter-body p { margin: 0 0 1.15em; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 {
+      color: var(--accent);
+      line-height: 1.35;
+      margin: 1.5em 0 .65em;
+    }
+    .chapter-body ul { padding-left: 1.4em; margin: 0 0 1.2em; }
+    .chapter-body li { margin: .35em 0; }
+    .chapter-body code {
+      padding: .1em .35em;
+      border-radius: 6px;
+      background: rgba(30,30,30,.08);
+    }
+    .chapter-body a {
+      color: #0f5ca8;
+      font-weight: 900;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    .chapter-body a:visited {
+      color: #5f3c9a;
+    }
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      z-index: 40;
+      width: min(720px, calc(100% - 24px));
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 22px;
+      background: rgba(255,253,248,.92);
+      box-shadow: 0 12px 34px rgba(55,35,16,.2);
+      backdrop-filter: blur(10px);
+    }
+    .bottom-nav button {
+      min-height: 48px;
+      border: 0;
+      border-radius: 16px;
+      background: var(--accent);
+      color: white;
+      font-size: 17px;
+      font-weight: 900;
+    }
+    .bottom-nav button:disabled { opacity: .35; }
+    .page-indicator {
+      min-width: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 900;
+    }
+    @media (max-width: 780px) {
+      .topbar { gap: 6px; }
+      .topbar-title { font-size: 16px; }
+      .topbar button, .topbar select { min-height: 36px; padding: 0 10px; font-size: 14px; }
+      .layout { display: block; padding: 12px 10px 88px; }
+      .toc { display: none; }
+      .cover { min-height: calc(100vh - 130px); padding: 18px 0; }
+      .cover-card { min-height: 620px; padding: 46px 28px; border-radius: 26px; }
+      .cover-badge { margin-bottom: 88px; }
+      .cover-title { margin-bottom: 100px; }
+      .chapter { padding: 24px 18px; border-radius: 20px; }
+      .chapter-body { font-size: calc(var(--font-size) - 1px); }
+      .bottom-nav { bottom: 8px; }
+      .bottom-nav button { min-height: 54px; font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">零墜落戰術：消防高處作業安全指引</div>
+    <select id="chapterSelect" aria-label="選擇章節"></select>
+    <button type="button" id="fontMinus">A-</button>
+    <button type="button" id="fontPlus">A+</button>
+  </header>
+  <main class="layout">
+    <aside class="toc" id="toc"><h2>目錄</h2></aside>
+    <section class="book" id="book">
+      <section class="cover active" id="cover">
+        <div class="cover-card">
+          <div class="cover-badge">有聲書</div>
+          <div class="cover-title">零墜落戰術：消防高處作業安全指引</div>
+          <div class="cover-author">hoshu</div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <nav class="bottom-nav">
+    <button type="button" id="prevBtn">← 上一章</button>
+    <div class="page-indicator" id="pageIndicator">封面</div>
+    <button type="button" id="nextBtn">下一章 →</button>
+  </nav>
+  <script>
+    const chapters = [{"number": 1, "key": "1", "title": "鐵皮屋頂救災墜落預防技術指南", "sourceTextName": "01.txt", "sourceAudioName": "", "html": "<h3>影片教學與表單測驗</h3>\n<p>本教材提供消防人員執行鐵皮屋頂、採光罩及高處救災作業時之安全訓練參考，重點在於強化墜落風險辨識、行動路徑判斷與現場安全防護觀念。 請依序完成影片觀看與表單測驗，作為高處救災安全訓練之學習紀錄與成效確認。</p>\n<h3>影片教學</h3>\n<p>請先觀看教學影片，了解鐵皮屋頂與採光罩等高處環境的主要風險，以及消防人員於現場移動、路徑判斷與安全防護的注意事項。 影片連結： <a href=\"https://youtu.be/E8CL88yEBrU\" target=\"_blank\" rel=\"noopener noreferrer\">https://youtu.be/E8CL88yEBrU</a></p>\n<h3>表單測驗</h3>\n<p>完成影片觀看後，請填寫表單測驗，以確認學習成效，並強化鐵皮屋頂救災墜落預防觀念。 測驗連結： <a href=\"https://script.google.com/macros/s/AKfycby4x3zPII4OIWnzPcX4t7gxE0CAPhkROWhGGJ7Kt7IK9qdGbVd0GxtTPeV0by4F1b0d/exec\" target=\"_blank\" rel=\"noopener noreferrer\">https://script.google.com/macros/s/AKfycby4x3zPII4OIWnzPcX4t7gxE0CAPhkROWhGGJ7Kt7IK9qdGbVd0GxtTPeV0by4F1b0d/exec</a></p>\n<h3>核心提醒</h3>\n<p><strong>不盲目跨步，是高處救災的第一道防線。</strong> <strong>先辨識風險，再確認支撐；先建立路徑，再執行任務。</strong></p>", "audio": "", "audioMediaType": ""}];
+    const book = document.getElementById("book");
+    const toc = document.getElementById("toc");
+    const chapterSelect = document.getElementById("chapterSelect");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const pageIndicator = document.getElementById("pageIndicator");
+    const fontMinus = document.getElementById("fontMinus");
+    const fontPlus = document.getElementById("fontPlus");
+    let currentIndex = -1;
+    let fontSize = 20;
+
+    function stopAllAudio() {
+      document.querySelectorAll("audio").forEach(audio => audio.pause());
+    }
+    function escapeHtml(value) {
+      return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function buildBook() {
+      chapters.forEach((chapter, index) => {
+        const article = document.createElement("article");
+        article.className = "chapter";
+        article.id = "chapter-" + index;
+        const audioHtml = chapter.audio
+          ? `<div class="audio-card"><audio controls preload="none"><source src="${chapter.audio}" type="${chapter.audioMediaType || "audio/mpeg"}">您的瀏覽器不支援音訊播放。</audio></div>`
+          : "";
+        article.innerHTML = `
+          <header class="chapter-header">
+            <h1 class="chapter-title">${escapeHtml(chapter.title)}</h1>
+          </header>
+          ${audioHtml}
+          <div class="chapter-body">${chapter.html}</div>
+        `;
+        book.appendChild(article);
+
+        const tocButton = document.createElement("button");
+        tocButton.type = "button";
+        tocButton.textContent = `${index + 1}. ${chapter.title}`;
+        tocButton.addEventListener("click", () => showChapter(index));
+        toc.appendChild(tocButton);
+
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = `${index + 1}. ${chapter.title}`;
+        chapterSelect.appendChild(option);
+      });
+
+      const coverOption = document.createElement("option");
+      coverOption.value = "-1";
+      coverOption.textContent = "封面";
+      chapterSelect.insertBefore(coverOption, chapterSelect.firstChild);
+      chapterSelect.value = "-1";
+    }
+    function showChapter(index) {
+      stopAllAudio();
+      currentIndex = index;
+      document.querySelectorAll(".cover, .chapter").forEach(el => el.classList.remove("active"));
+      document.querySelectorAll(".toc button").forEach((button, i) => button.classList.toggle("active", i === index));
+      if (index < 0) {
+        document.getElementById("cover").classList.add("active");
+        pageIndicator.textContent = "封面";
+        chapterSelect.value = "-1";
+      } else {
+        document.getElementById("chapter-" + index).classList.add("active");
+        pageIndicator.textContent = `${index + 1} / ${chapters.length}`;
+        chapterSelect.value = String(index);
+      }
+      prevBtn.disabled = index <= -1;
+      nextBtn.disabled = index >= chapters.length - 1;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    prevBtn.addEventListener("click", () => { if (currentIndex > -1) showChapter(currentIndex - 1); });
+    nextBtn.addEventListener("click", () => { if (currentIndex < chapters.length - 1) showChapter(currentIndex + 1); });
+    chapterSelect.addEventListener("change", () => showChapter(Number(chapterSelect.value)));
+    fontMinus.addEventListener("click", () => {
+      fontSize = Math.max(16, fontSize - 2);
+      document.documentElement.style.setProperty("--font-size", fontSize + "px");
+    });
+    fontPlus.addEventListener("click", () => {
+      fontSize = Math.min(32, fontSize + 2);
+      document.documentElement.style.setProperty("--font-size", fontSize + "px");
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowRight") nextBtn.click();
+      if (event.key === "ArrowLeft") prevBtn.click();
+    });
+    buildBook();
+    showChapter(-1);
+  </script>
+</body>
+</html>
