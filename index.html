@@ -1,354 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>零墜落戰術：消防高處作業安全指引</title>
-  <style>
-    :root {
-      --bg: #f4efe6;
-      --paper: #fffdf8;
-      --ink: #24201c;
-      --muted: #766a5b;
-      --accent: #22395f;
-      --accent-2: #b9872f;
-      --border: rgba(90, 65, 35, 0.16);
-      --shadow: rgba(55, 35, 16, 0.16);
-      --font-size: 20px;
-      --line-height: 1.85;
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-    }
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      background: rgba(34, 57, 95, 0.96);
-      color: white;
-      box-shadow: 0 8px 24px rgba(0,0,0,.18);
-    }
-    .topbar-title {
-      flex: 1;
-      min-width: 0;
-      font-weight: 900;
-      font-size: 18px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .topbar button, .topbar select {
-      border: 0;
-      border-radius: 999px;
-      background: rgba(255,255,255,.95);
-      color: #17253f;
-      min-height: 38px;
-      padding: 0 12px;
-      font-size: 15px;
-      font-weight: 800;
-    }
-    .layout {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      padding: 22px 16px 90px;
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 20px;
-    }
-    .toc {
-      position: sticky;
-      top: 64px;
-      align-self: start;
-      max-height: calc(100vh - 88px);
-      overflow: auto;
-      background: rgba(255,253,248,.9);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 16px;
-      box-shadow: 0 12px 34px var(--shadow);
-    }
-    .toc h2 { margin: 0 0 12px; font-size: 18px; color: var(--accent); }
-    .toc button {
-      display: block;
-      width: 100%;
-      margin: 6px 0;
-      padding: 10px 12px;
-      border: 1px solid transparent;
-      border-radius: 14px;
-      background: transparent;
-      color: var(--ink);
-      text-align: left;
-      font-size: 15px;
-      line-height: 1.35;
-      cursor: pointer;
-    }
-    .toc button.active {
-      background: #eef3fb;
-      border-color: rgba(34,57,95,.18);
-      color: var(--accent);
-      font-weight: 900;
-    }
-    .cover {
-      min-height: calc(100vh - 128px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 36px 16px;
-    }
-    .cover:not(.active) { display: none; }
-    .cover-card {
-      width: min(720px, 100%);
-      min-height: 760px;
-      padding: 64px 48px;
-      border-radius: 34px;
-      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,0)), linear-gradient(145deg, #143c79, #0b1d42);
-      color: white;
-      box-shadow: 0 28px 70px rgba(30,20,10,.26);
-      border: 2px solid rgba(219,195,145,.48);
-      text-align: center;
-    }
-    .cover-badge {
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: 999px;
-      background: var(--accent-2);
-      color: #132746;
-      font-weight: 900;
-      letter-spacing: .2em;
-      margin-bottom: 120px;
-    }
-    .cover-title {
-      font-size: clamp(36px, 7vw, 64px);
-      line-height: 1.35;
-      font-weight: 900;
-      margin-bottom: 140px;
-    }
-    .cover-author { color: #f4e0b6; font-size: 24px; line-height: 1.6; }
-    .chapter {
-      display: none;
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: 0 16px 42px var(--shadow);
-      padding: 36px;
-    }
-    .chapter.active { display: block; }
-    .chapter-header {
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 24px;
-      padding-bottom: 20px;
-    }
-    .chapter-title {
-      margin: 0;
-      color: var(--accent);
-      font-size: clamp(30px, 5vw, 46px);
-      line-height: 1.3;
-    }
-    .audio-card {
-      margin: 22px 0 28px;
-      padding: 16px;
-      border-radius: 18px;
-      background: #f3ebdd;
-      border: 1px solid var(--border);
-    }
-    .audio-card audio { width: 100%; height: 44px; display: block; }
-    .chapter-body { font-size: var(--font-size); line-height: var(--line-height); }
-    .chapter-body p { margin: 0 0 1.15em; }
-    .chapter-body h2, .chapter-body h3, .chapter-body h4 {
-      color: var(--accent);
-      line-height: 1.35;
-      margin: 1.5em 0 .65em;
-    }
-    .chapter-body ul { padding-left: 1.4em; margin: 0 0 1.2em; }
-    .chapter-body li { margin: .35em 0; }
-    .chapter-body code {
-      padding: .1em .35em;
-      border-radius: 6px;
-      background: rgba(30,30,30,.08);
-    }
-    .chapter-body a {
-      color: #0f5ca8;
-      font-weight: 900;
-      text-decoration: underline;
-      word-break: break-all;
-    }
-    .chapter-body a:visited {
-      color: #5f3c9a;
-    }
-    .bottom-nav {
-      position: fixed;
-      left: 50%;
-      bottom: 12px;
-      transform: translateX(-50%);
-      z-index: 40;
-      width: min(720px, calc(100% - 24px));
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 10px;
-      padding: 10px;
-      border-radius: 22px;
-      background: rgba(255,253,248,.92);
-      box-shadow: 0 12px 34px rgba(55,35,16,.2);
-      backdrop-filter: blur(10px);
-    }
-    .bottom-nav button {
-      min-height: 48px;
-      border: 0;
-      border-radius: 16px;
-      background: var(--accent);
-      color: white;
-      font-size: 17px;
-      font-weight: 900;
-    }
-    .bottom-nav button:disabled { opacity: .35; }
-    .page-indicator {
-      min-width: 92px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-weight: 900;
-    }
-    @media (max-width: 780px) {
-      .topbar { gap: 6px; }
-      .topbar-title { font-size: 16px; }
-      .topbar button, .topbar select { min-height: 36px; padding: 0 10px; font-size: 14px; }
-      .layout { display: block; padding: 12px 10px 88px; }
-      .toc { display: none; }
-      .cover { min-height: calc(100vh - 130px); padding: 18px 0; }
-      .cover-card { min-height: 620px; padding: 46px 28px; border-radius: 26px; }
-      .cover-badge { margin-bottom: 88px; }
-      .cover-title { margin-bottom: 100px; }
-      .chapter { padding: 24px 18px; border-radius: 20px; }
-      .chapter-body { font-size: calc(var(--font-size) - 1px); }
-      .bottom-nav { bottom: 8px; }
-      .bottom-nav button { min-height: 54px; font-size: 18px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>零墜落戰術：消防高處作業安全指引</title>
+<style>
+:root{--bg1:#d6c4a5;--bg2:#f5ecdc;--paper:#fffdf8;--ink:#2a241d;--accent:#22395f;--gold:#b88730;--font-size:22px;--cover-bg1:#7a2638;--cover-bg2:#36101b;--cover-label-bg:#e0b35a;--cover-label-text:#36101b;--cover-title:#ffffff;--cover-sub:#f6d8c8;--cover-author:#f0c8b8;}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:radial-gradient(circle at center,rgba(255,255,255,.4),transparent 42%),linear-gradient(135deg,var(--bg1),var(--bg2));font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink)}
+.app{position:fixed;inset:0;display:grid;grid-template-rows:auto 1fr auto}.header{display:flex;align-items:center;gap:8px;min-height:56px;padding:max(8px,env(safe-area-inset-top)) 12px 8px;background:rgba(255,250,240,.85);box-shadow:0 6px 20px rgba(60,40,20,.12);z-index:20}.title{flex:1;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.header button,.header select,.footer button{border:0;border-radius:999px;background:#fffaf0;color:#2d241b;font-weight:900;height:38px;padding:0 12px;box-shadow:0 4px 14px rgba(70,45,20,.12)}.header select{min-width:190px;max-width:260px;appearance:auto}
+.stage{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:14px 18px}.spread{position:relative;width:min(98vw,1180px);height:100%;display:flex;align-items:center;justify-content:center;perspective:1600px}.gutter{position:absolute;top:7%;bottom:7%;left:50%;width:18px;transform:translateX(-50%);border-radius:999px;background:linear-gradient(90deg,rgba(75,48,24,.2),rgba(255,255,255,.75),rgba(75,48,24,.12));z-index:5}
+.page{position:relative;width:min(46vw,540px);height:calc(100vh - 182px);background:var(--paper);overflow:hidden;box-shadow:0 22px 58px rgba(53,34,16,.24);border:1px solid rgba(120,90,52,.1)}.left{border-radius:20px 4px 4px 20px}.right{border-radius:4px 20px 20px 4px}.cover{display:none;width:min(76vw,640px);border-radius:24px}.coverbox{height:100%;padding:60px 44px;background:linear-gradient(145deg,var(--cover-bg1),var(--cover-bg2));color:var(--cover-title);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.cover-label{padding:10px 22px;border-radius:999px;background:var(--cover-label-bg);color:var(--cover-label-text);font-weight:900;letter-spacing:.18em;margin-bottom:80px}.cover-title{font-size:clamp(34px,7vw,62px);line-height:1.35;font-weight:900;margin-bottom:80px;color:var(--cover-title)}.cover-sub{color:var(--cover-sub);font-size:24px;line-height:1.5}.cover-author{margin-top:24px;color:var(--cover-author);font-size:20px;line-height:1.5;font-weight:700}
+.pic-inner{height:100%;padding:18px;display:flex;align-items:center;justify-content:center;background:#fffdf8}.pic-frame{width:100%;height:100%;border-radius:14px;background:#f8f4ed;overflow:hidden;display:flex;align-items:center;justify-content:center;transform:translate(var(--pan-x,0px),var(--pan-y,0px)) scale(var(--zoom,1));transform-origin:center center;transition:transform .18s ease-out}.pic-frame.zoomed{cursor:grab;transition:none}.pic-frame img{max-width:100%;max-height:100%;display:block;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.text-inner{height:100%;padding:42px 46px;overflow:auto}.story-title{margin:0 0 24px;color:var(--accent);font-size:clamp(28px,4vw,42px);line-height:1.32;font-weight:900}.story-body{font-size:var(--font-size);line-height:1.9}.story-body p{margin:0 0 1.15em}.story-body a{color:#0b63ce;font-weight:900;text-decoration:underline;text-underline-offset:3px;word-break:break-word}.story-body a:hover{color:#d26a00}.sentence{display:block;margin:0 0 12px;padding:8px 10px;border-radius:12px;border:1px solid transparent;cursor:pointer}.sentence.done{color:#8b7c69}.sentence.active{background:#fff0ad;color:#201708;font-weight:900;border-color:rgba(180,125,30,.28);box-shadow:0 6px 18px rgba(170,110,20,.12)}.pageno{position:absolute;right:18px;bottom:14px;padding:4px 9px;border-radius:999px;background:rgba(255,250,240,.9);font-weight:900;color:#766a5b}
+.soft-back .page{animation:softBack .16s ease-out}.soft-back .cover{animation:softBack .16s ease-out}@keyframes softBack{from{opacity:.72;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}.flip{position:absolute;z-index:30;top:50%;left:50%;width:min(46vw,540px);height:calc(100vh - 182px);background:var(--paper);box-shadow:0 24px 70px rgba(40,24,10,.35);overflow:hidden;display:none;backface-visibility:hidden;transform-style:preserve-3d}.flip:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.18),rgba(255,255,255,.08),rgba(0,0,0,.10));opacity:0}.flip.next{display:block;transform-origin:left center;animation:flipNext .64s cubic-bezier(.18,.78,.22,1) forwards}.flip.next:after{animation:flipShade .64s ease forwards}.flip.prev{display:block;left:50%;width:min(46vw,540px);transform-origin:right center;animation:flipPrevFlash .42s cubic-bezier(.18,.78,.22,1) forwards}.flip.prev:after{animation:flipShadePrev .44s ease forwards}@keyframes flipNext{0%{transform:translate(-50%,-50%) translateX(50%) rotateY(0deg);opacity:1}50%{transform:translate(-50%,-50%) translateX(0%) rotateY(-94deg);opacity:.96}100%{transform:translate(-50%,-50%) translateX(-50%) rotateY(-176deg);opacity:0}}@keyframes flipPrevFlash{0%{transform:translate(-50%,-50%) translateX(-50%) scaleX(1) rotateY(0deg);opacity:.95;filter:brightness(1.03)}55%{transform:translate(-50%,-50%) translateX(-10%) scaleX(1.06) rotateY(98deg);opacity:.90;filter:brightness(1.12)}100%{transform:translate(-50%,-50%) translateX(18%) scaleX(1.02) rotateY(150deg);opacity:0;filter:brightness(1)}}@keyframes flipShade{0%{opacity:.05}45%{opacity:.46}100%{opacity:0}}@keyframes flipShadePrev{0%{opacity:.10}50%{opacity:.38}100%{opacity:0}}
+.nav{position:absolute;top:50%;transform:translateY(-50%);z-index:12;width:64px;height:64px;border:0;border-radius:999px;background:rgba(255,250,240,.86);font-size:38px;font-weight:900;box-shadow:0 10px 30px rgba(60,40,20,.18)}.nav:disabled{opacity:.25}.prev{left:12px}.nextbtn{right:12px}.footer{min-height:86px;padding:8px 14px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:auto auto 1fr auto;gap:10px;align-items:center;background:rgba(255,250,240,.9);box-shadow:0 -8px 24px rgba(60,40,20,.12);z-index:20}.footer button{background:var(--accent);color:white;border-radius:16px}.audio{width:100%;height:42px}.info{text-align:right;font-weight:900;color:#6d5c49}.noaudio .play,.noaudio .audio{opacity:.35}.msg{position:absolute;left:20px;right:20px;bottom:106px;display:none;padding:12px 14px;border-radius:14px;background:rgba(34,57,95,.92);color:white;text-align:center;font-weight:900;z-index:40}.msg.show{display:block}
+@media(max-width:760px){.header{gap:5px}.header button,.header select{min-width:34px;height:34px;padding:0 8px;font-size:13px}.header select{max-width:150px;min-width:120px}.stage{padding:8px}.gutter{display:none}.left{display:none}.page{width:min(92vw,520px);height:calc(100vh - 220px);border-radius:18px}.right{border-radius:18px}.cover{width:min(92vw,520px)}.text-inner{padding:28px}.story-body{font-size:calc(var(--font-size) - 1px)}.flip{width:min(92vw,520px);height:calc(100vh - 220px)}.nav{width:56px;height:56px;top:auto;bottom:108px;transform:none;font-size:34px}.footer{grid-template-columns:auto auto 1fr;grid-template-areas:"play reset info" "audio audio audio";min-height:116px;gap:8px}.play{grid-area:play}.replay{grid-area:reset}.audio{grid-area:audio}.info{grid-area:info;font-size:13px}.footer button{height:42px;padding:0 12px;font-size:14px}.msg{bottom:140px}}
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-title">零墜落戰術：消防高處作業安全指引</div>
-    <select id="chapterSelect" aria-label="選擇章節"></select>
-    <button type="button" id="fontMinus">A-</button>
-    <button type="button" id="fontPlus">A+</button>
-  </header>
-  <main class="layout">
-    <aside class="toc" id="toc"><h2>目錄</h2></aside>
-    <section class="book" id="book">
-      <section class="cover active" id="cover">
-        <div class="cover-card">
-          <div class="cover-badge">電子書</div>
-          <div class="cover-title">零墜落戰術：消防高處作業安全指引</div>
-          <div class="cover-author">hoshu</div>
-        </div>
-      </section>
-    </section>
-  </main>
-  <nav class="bottom-nav">
-    <button type="button" id="prevBtn">← 上一章</button>
-    <div class="page-indicator" id="pageIndicator">封面</div>
-    <button type="button" id="nextBtn">下一章 →</button>
-  </nav>
-  <script>
-    const chapters = [{"number":1,"key":"1","title":"鐵皮屋頂救災墜落預防","sourceTextName":"01.txt","sourceAudioName":"","html":"<h3>影片教學與表單測驗</h3>\n<p>鐵皮屋、採光罩及加蓋屋頂在救災現場具有高度墜落風險。高溫弱化、材質脆化或支撐位置不明，都可能造成踩空意外。</p>\n<p>本教材以「不盲目跨步」為核心原則，提醒消防人員執行高處作業時，應先確認固定螺絲線、骨架或實體支撐位置，並運用「退、探、建」建立安全行動路徑。</p>\n<h3>影片教學</h3>\n<p>請先觀看教學影片，了解鐵皮屋頂、採光罩等高處環境的常見風險，以及現場移動與路徑判斷重點。</p>\n<p>影片連結： <a href=\"https://youtu.be/E8CL88yEBrU\" target=\"_blank\" rel=\"noopener noreferrer\">https://youtu.be/E8CL88yEBrU</a></p>\n<h3>表單測驗</h3>\n<p>完成影片觀看後，請填寫表單測驗，協助確認學習成效，並強化高處救災安全觀念。</p>\n<p>測驗連結： <a href=\"https://script.google.com/macros/s/AKfycby4x3zPII4OIWnzPcX4t7gxE0CAPhkROWhGGJ7Kt7IK9qdGbVd0GxtTPeV0by4F1b0d/exec\" target=\"_blank\" rel=\"noopener noreferrer\">https://script.google.com/macros/s/AKfycby4x3zPII4OIWnzPcX4t7gxE0CAPhkROWhGGJ7Kt7IK9qdGbVd0GxtTPeV0by4F1b0d/exec</a></p>\n<h3>重點提醒</h3>\n<p><strong>不盲目跨步，是高處救災的第一道防線。</strong> <strong>先退、再探、後建立路徑，確保人員安全再執行任務。</strong></p>","audio":"","audioMediaType":""},{"number":2,"key":"2","title":"從事故學會避免下一次墜落","sourceTextName":"02.txt","sourceAudioName":"02.mp3","html":"<p>本書從一件住宅火警高處墜落案例出發，整理消防人員在鐵皮構造、採光罩、浪板、頂樓加蓋與其他未知踩踏面作業時，最容易忽略的風險。</p>\n<p>核心不是記住某一起事故，而是建立可重複使用的安全判斷程序：先辨識材質，再確認支撐；先探測路徑，再移動身體；無法確認時，就不要把重量交給未知表面。</p>\n<p>本書要反覆提醒五件事： 到梯頂，先停步。 腳出去，先探路。 材質不明，當禁區。 無探測，不跨步。 沒有路，先建路。</p>","audio":"audio/02.mp3","audioMediaType":"audio/mpeg"},{"number":3,"key":"3","title":"住宅火警事故經過","sourceTextName":"03.txt","sourceAudioName":"03.mp3","html":"<p>某次住宅火警，現場有頂樓加蓋鐵皮構造與雜物燃燒。搶救過程中，因原有入口受阻，消防人員改由梯具前往較高樓層尋找進入路線。</p>\n<p>人員到達上方後，行經接近入口的採光罩區域，板材突然破裂，造成墜落受傷。後續現場持續進行火勢控制與人員救護。</p>\n<p>這起事故提醒我們：高處墜落風險常發生在任務初期，尤其是急著建立入口、改變進入路線，或準備從梯頂踏出第一步的時候。</p>","audio":"audio/03.mp3","audioMediaType":"audio/mpeg"},{"number":4,"key":"4","title":"危險常在入口附近","sourceTextName":"04.txt","sourceAudioName":"04.mp3","html":"<p>高處危險不一定出現在屋頂深處，也可能就在入口、門廊、雨遮或梯頂旁邊。</p>\n<p>當一樓入口無法使用，消防人員可能改由架梯上樓、翻窗或從其他高處位置進入。但只要梯頂外側是鐵皮、浪板、採光罩、雨遮或不明板材，就不能直接把它視為安全立足點。</p>\n<p>最容易被忽略的，往往不是上梯本身，而是離開梯子後的第一步。</p>\n<p>梯子讓你上去，不代表你可以直接走出去。</p>","audio":"audio/04.mp3","audioMediaType":"audio/mpeg"},{"number":5,"key":"5","title":"採光罩可能瞬間失效","sourceTextName":"05.txt","sourceAudioName":"05.mp3","html":"<p>採光罩、塑膠浪板或老化透明板材，主要功能是採光或遮蔽，不應視為可供人員踩踏的承重面。</p>\n<p>當消防人員把身體與裝備重量交給這類板材時，板材可能不是慢慢變形，而是突然破裂，形成大面積孔洞，使人員直接跌落到下方空間。</p>\n<p>消防人員穿著防護裝備並攜帶器材時，總重量更高，風險也會隨之增加。</p>\n<p>採光罩不是立足點，也不是臨時平台。不要用身體測試板材強度。</p>","audio":"audio/05.mp3","audioMediaType":"audio/mpeg"},{"number":6,"key":"6","title":"梯頂到入口的幾步最危險","sourceTextName":"06.txt","sourceAudioName":"06.mp3","html":"<p>很多人會注意梯具是否穩固，卻容易忽略梯頂外側的水平移動路徑。</p>\n<p>真正的危險，可能就在離開梯子後、前往門口或窗戶的短短幾步。如果前方是採光罩、浪板、雨遮或不明材質，即使距離很短，也可能在第一步就發生墜落。</p>\n<p>到達梯頂後，第一個動作不應是立刻踏出去，而是停下來確認前方材質、支撐位置與下一個安全立足點。</p>\n<p>到梯頂，先停步；腳出去，先探路。</p>","audio":"audio/06.mp3","audioMediaType":"audio/mpeg"},{"number":7,"key":"7","title":"事故鏈怎麼形成","sourceTextName":"07.txt","sourceAudioName":"07.mp3","html":"<p>高處墜落通常不是單一原因造成，而是一連串條件累積的結果。</p>\n<p>入口受阻，改由梯具上樓。 前方是鐵皮構造與採光罩混合區。 任務壓力升高，急著建立進入路線。 踩踏材質與下方支撐沒有完全確認。 人員將重量移到未知板面。 板材破裂，發生墜落。</p>\n<p>事故不是從板材破裂那一刻才開始，而是從未知踩踏面沒有被確認時，風險就已經開始累積。</p>","audio":"audio/07.mp3","audioMediaType":"audio/mpeg"},{"number":8,"key":"8","title":"事故鏈可以在哪裡中斷","sourceTextName":"08.txt","sourceAudioName":"08.mp3","html":"<p>高處墜落並不是只能在最後一刻避免。只要在其中任何一個環節停下來重新判斷，就有機會中斷事故鏈。</p>\n<p>上梯前，先觀察上方是否有採光罩、浪板或不明板材。 到達梯頂後，先確認第一個立足點。 腳踏出去前，先用工具探測。 看見半透明、塑膠、浪板或無法辨識的材質，先視為禁區。 無法確認支撐時，改選入口或建立人工安全路徑。</p>\n<p>安全不是靠運氣，而是靠每一步確認。</p>","audio":"audio/08.mp3","audioMediaType":"audio/mpeg"},{"number":9,"key":"9","title":"五句安全金律","sourceTextName":"09.txt","sourceAudioName":"09.mp3","html":"<p>本書所有高處作業觀念，可以濃縮成五句安全金律：</p>\n<p>到梯頂，先停步。 腳出去，先探路。 材質不明，當禁區。 無探測，不跨步。 沒有路，先建路。</p>\n<p>這五句不是口號，而是現場行動順序。當火場環境緊迫、視線不佳、任務壓力升高時，更需要用固定程序取代直覺反應。</p>","audio":"audio/09.mp3","audioMediaType":"audio/mpeg"},{"number":10,"key":"10","title":"看起來像屋面，不代表能承重","sourceTextName":"10.txt","sourceAudioName":"10.mp3","html":"<p>採光罩、塑膠浪板與鐵皮浪板，外觀可能非常相似，也可能混合安裝在同一個屋面。</p>\n<p>外型相似，不代表材質相同；材質相同，也不代表支撐方式相同；表面看起來完整，更不代表能承受消防人員與裝備的重量。</p>\n<p>判斷重點不是「看起來像不像鐵皮」，而是腳下是否有可以確認的承重結構。</p>\n<p>看不出來，就不要踩。</p>","audio":"audio/10.mp3","audioMediaType":"audio/mpeg"},{"number":11,"key":"11","title":"採光罩是隱形陷阱","sourceTextName":"11.txt","sourceAudioName":"11.mp3","html":"<p>採光罩常出現在鐵皮屋、頂樓加蓋、廠房、門廊、雨遮與住宅增建空間。它的用途是採光，不是承重。</p>\n<p>在火場中，採光罩可能被煙霧、灰塵、青苔、水漬、雜物或光線影響而難以辨識。當採光罩與鐵皮浪板混合排列時，更容易被誤判成可以通行的屋面。</p>\n<p>只要看到半透明、塑膠、老化或材質不明的板面，就應提高警覺。</p>\n<p>採光罩不是路，是陷阱。</p>","audio":"audio/11.mp3","audioMediaType":"audio/mpeg"},{"number":12,"key":"12","title":"火場會放大誤判","sourceTextName":"12.txt","sourceAudioName":"12.mp3","html":"<p>火場不是一般環境。濃煙、熱氣、水霧、反光、照明不足、射水後濕滑與雜物遮蔽，都可能讓視覺判斷變得不可靠。</p>\n<p>任務越急，人員越容易把「看起來可以走」誤判成「真的可以承重」。尤其當入口受阻、搶救進度受限或必須快速改變路線時，更容易省略確認步驟。</p>\n<p>火場中最危險的，不一定是看得見的火，也可能是你以為安全的那一步。</p>\n<p>現場越急，越要停下來確認。</p>","audio":"audio/12.mp3","audioMediaType":"audio/mpeg"},{"number":13,"key":"13","title":"高溫會削弱結構","sourceTextName":"13.txt","sourceAudioName":"13.mp3","html":"<p>鐵皮、浪板、橫樑與支撐構件在火場高溫下可能變形或弱化。即使外觀看起來完整，下方支撐能力也可能已經下降。</p>\n<p>因此，高處作業不能只靠肉眼判斷，還要注意火勢位置、受熱時間、煙流、熱異常與結構變形跡象。</p>\n<p>如果前方區域正受到高溫影響，就應重新評估是否適合通行，必要時退回已確認的安全位置。</p>\n<p>表面完整，不代表結構安全。</p>","audio":"audio/13.mp3","audioMediaType":"audio/mpeg"},{"number":14,"key":"14","title":"鐵皮多半只是覆蓋物","sourceTextName":"14.txt","sourceAudioName":"14.mp3","html":"<p>鐵皮屋頂或鐵皮加蓋的板面，通常只是覆蓋材料，不是主要承重結構。</p>\n<p>真正承受重量的，是下方的鋼柱、橫樑、檁條或其他支撐系統。如果人員把重量放在板面中央，而下方沒有可靠支撐，就可能發生變形、破裂或踩空。</p>\n<p>移動時應把注意力放在「下方有沒有結構」，而不是只看表面是否完整。</p>\n<p>不要把重量交給表面，要交給結構。</p>","audio":"audio/14.mp3","audioMediaType":"audio/mpeg"},{"number":15,"key":"15","title":"固定螺絲線是重要線索","sourceTextName":"15.txt","sourceAudioName":"15.mp3","html":"<p>鐵皮屋面上的固定螺絲，常可以作為判斷下方支撐位置的線索。螺絲排列方向，通常與橫樑、檁條或其他固定構件有關。</p>\n<p>當必須在鐵皮構造附近移動時，可以利用螺絲線協助判斷可能的支撐位置，並搭配目視、工具探測與現場條件綜合確認。</p>\n<p>但要注意，螺絲線只能作為線索，不能當成絕對安全保證。</p>\n<p>找螺絲線，就是找可能的支撐線。</p>","audio":"audio/15.mp3","audioMediaType":"audio/mpeg"},{"number":16,"key":"16","title":"無螺絲、無支撐、無確認，就當禁區","sourceTextName":"16.txt","sourceAudioName":"16.mp3","html":"<p>如果一個區域沒有明顯固定螺絲、看不出下方支撐、材質不明，或表面疑似採光罩、塑膠浪板，就不應直接踩踏。</p>\n<p>不要用腳去確認。 不要因為距離短就冒險跨越。 不要因為任務緊急就省略判斷。 不要因為表面完整就相信它可以承重。</p>\n<p>只要無法確認，就先當成禁區。</p>","audio":"audio/16.mp3","audioMediaType":"audio/mpeg"},{"number":17,"key":"17","title":"靠主結構，不走薄弱區","sourceTextName":"17.txt","sourceAudioName":"17.mp3","html":"<p>在鐵皮屋、頂樓加蓋或高處平台移動時，路線應優先靠近可以辨識的主結構。</p>\n<p>主結構可能包括鋼柱、外牆、樑柱交會處或其他明確支撐位置。相較之下，板面中央、採光罩、浪板、臨時加蓋、老舊雨遮與支撐不明區域，都屬於高風險位置。</p>\n<p>路線判斷不能只看哪裡最近，而要看哪裡有可靠結構。</p>\n<p>不是哪裡近就走哪裡，而是哪裡有結構才走哪裡。</p>","audio":"audio/17.mp3","audioMediaType":"audio/mpeg"},{"number":18,"key":"18","title":"無探測，不跨步","sourceTextName":"18.txt","sourceAudioName":"18.mp3","html":"<p>當前方踏點不明、材質不明或支撐不明時，不要直接跨步。</p>\n<p>正確順序是： 先停。 先看。 先確認。 先用工具探測。 確認後，再移動身體重量。</p>\n<p>可以利用火斧、撬棒、手電筒或其他適當器材，先對前方踏點進行輕敲、施壓或觸探，再決定是否移動。</p>\n<p>腳不要先出去，工具要先出去。</p>","audio":"audio/18.mp3","audioMediaType":"audio/mpeg"},{"number":19,"key":"19","title":"工具是觸覺延伸","sourceTextName":"19.txt","sourceAudioName":"19.mp3","html":"<p>火斧、撬棒、手電筒或其他適當器材，不只是破壞工具，也可以成為高處作業時的觸覺延伸。</p>\n<p>移動前，可以先用工具輕敲、施壓或觸探前方，確認是否有空洞感、異常彈性、破裂聲、鬆動或支撐不足。</p>\n<p>如果工具探測已出現異常，就不能再用身體重量測試。</p>\n<p>工具先出去，是為了讓危險先被發現，而不是讓人員先承受後果。</p>","audio":"audio/19.mp3","audioMediaType":"audio/mpeg"},{"number":20,"key":"20","title":"一步一確認，不搶那一步","sourceTextName":"20.txt","sourceAudioName":"20.mp3","html":"<p>火場搶救講求速度，但速度不能建立在未知風險上。高處作業真正有效率的推進，是每一步都知道自己踩在哪裡。</p>\n<p>搶一步，可能造成隊員墜落受傷。 搶一步，可能讓原本的任務被迫中斷。 搶一步，也可能讓救災行動變成救援自己人。</p>\n<p>一步一確認，看似比較慢，其實是在維持整體戰力。</p>\n<p>慢一步確認，是為了不中斷任務。</p>","audio":"audio/20.mp3","audioMediaType":"audio/mpeg"},{"number":21,"key":"21","title":"低姿移動，分散重量","sourceTextName":"21.txt","sourceAudioName":"21.mp3","html":"<p>在鐵皮屋頂、受損樓板、採光罩附近或不穩定板面上移動時，不宜直立快速行走。</p>\n<p>採取較低姿勢，可以降低重心、增加身體接觸面積，並減少重量集中在單一位置的情形。當環境濕滑或結構不穩時，也較有利於控制身體平衡。</p>\n<p>但低姿移動不能取代路徑確認。前方材質與支撐仍然必須先確認。</p>\n<p>能低不要高，能分散不要集中。</p>","audio":"audio/21.mp3","audioMediaType":"audio/mpeg"},{"number":22,"key":"22","title":"TIC 不只是找火點","sourceTextName":"22.txt","sourceAudioName":"22.mp3","html":"<p>熱顯像儀除了搜尋火點，也可以協助觀察屋面、牆面、夾層或結構附近是否出現熱異常。</p>\n<p>如果某一區域溫度明顯升高，代表下方可能有火勢接近，或結構正在受到高溫影響。即使表面看起來沒有破損，也不能因此認定它仍然具備安全承載能力。</p>\n<p>熱異常應被視為重新評估路徑的重要警訊。</p>\n<p>高溫不是只有火點，也是結構警訊。</p>","audio":"audio/22.mp3","audioMediaType":"audio/mpeg"},{"number":23,"key":"23","title":"高溫區就是警戒區","sourceTextName":"23.txt","sourceAudioName":"23.mp3","html":"<p>看到熱異常區時，不只要問「火在哪裡」，還要問「這裡還能不能安全通行」。</p>\n<p>外觀看似完整的鐵皮、浪板或樓板，如果下方持續受熱，支撐能力可能已經下降。這時應重新判斷路徑，必要時退回安全點。</p>\n<p>高溫區、煙竄區、變形區、異音區與焦黑區，都應提高警覺。</p>\n<p>看見熱異常，就要重新判斷路徑。</p>","audio":"audio/23.mp3","audioMediaType":"audio/mpeg"},{"number":24,"key":"24","title":"用梯具建立人工安全路徑","sourceTextName":"24.txt","sourceAudioName":"24.mp3","html":"<p>當現場板材不明、支撐不明、踩踏面不可靠時，不應要求人員直接跨越。</p>\n<p>可以視現場條件，利用梯具或其他適當器材建立人工安全路徑，讓重量跨越多個較可靠的支撐位置，減少人員直接踩踏未知板面的機會。</p>\n<p>沒有安全路，就先建路。 建好路，再作業。 作業後，沿已確認的安全路徑撤離。</p>\n<p>不要硬走未知區，要建立受控路徑。</p>","audio":"audio/24.mp3","audioMediaType":"audio/mpeg"},{"number":25,"key":"25","title":"架梯上樓後，還有第二段安全路徑","sourceTextName":"25.txt","sourceAudioName":"25.mp3","html":"<p>架梯上樓只完成垂直移動，不代表水平移動已經安全。</p>\n<p>從梯頂到門口、窗戶、平台或作業位置之間，仍可能存在採光罩、浪板、雨遮、鐵皮加蓋或其他不明材質。</p>\n<p>因此，到達梯頂後仍要重新確認前方第一個立足點，必要時停下、探測、請求協助或建立第二段安全路徑。</p>\n<p>梯頂不是安全點，確認後的立足點才是安全點。</p>","audio":"audio/25.mp3","audioMediaType":"audio/mpeg"},{"number":26,"key":"26","title":"PPE 是最後防線，不是通行許可","sourceTextName":"26.txt","sourceAudioName":"26.mp3","html":"<p>消防衣、消防帽、消防鞋、手套與空氣呼吸器，是消防人員執行任務時的重要防護裝備。</p>\n<p>但完整的個人防護裝備，不能讓採光罩變成可承重平台，也不能讓受熱、老化或支撐不足的板面恢復安全。</p>\n<p>PPE 的作用，是在風險發生時提供最後一層保護，而不是取代路徑判斷、結構確認與安全程序。</p>\n<p>PPE 保護你，但不替你判斷路。</p>","audio":"audio/26.mp3","audioMediaType":"audio/mpeg"},{"number":27,"key":"27","title":"退、探、建","sourceTextName":"27.txt","sourceAudioName":"27.mp3","html":"<p>當完全找不到安全路徑，或不確定前方是否能通行時，不要硬闖。</p>\n<p>可以用三個字記住處理順序：退、探、建。</p>\n<p>退：退回已確認的安全立足點。 探：利用目視、照明、工具或熱顯像儀重新確認前方狀況。 建：必要時利用梯具或其他器材建立人工安全路徑。</p>\n<p>退不是放棄，而是重新取得安全主導權。</p>","audio":"audio/27.mp3","audioMediaType":"audio/mpeg"},{"number":28,"key":"28","title":"帶隊官要問的三句話","sourceTextName":"28.txt","sourceAudioName":"28.mp3","html":"<p>高處遇到未知踩踏面時，帶隊官、指揮人員或前進人員都可以先問三句話：</p>\n<p>第一，前方材質是什麼？ 第二，下方有沒有支撐？ 第三，退路在哪裡？</p>\n<p>如果其中任何一題答不出來，就不應直接推進。</p>\n<p>這三句話可以反覆用在架梯上樓、屋頂作業、頂樓加蓋、鐵皮雨遮、夾層或採光罩附近。</p>\n<p>問清楚，再前進；答不出來，就先停。</p>","audio":"audio/28.mp3","audioMediaType":"audio/mpeg"},{"number":29,"key":"29","title":"架梯上樓安全檢核","sourceTextName":"29.txt","sourceAudioName":"29.mp3","html":"<p>架梯上樓時，可以依序做以下檢核：</p>\n<p>上梯前先看：目標位置前方是否有採光罩、浪板、雨遮或不明材質？ 梯頂先停：不要一到梯頂就直接踏出。 腳出前先探：用工具確認第一個立足點與下一步路徑。 材質不明不踩：半透明、塑膠、老化、髒污或支撐不明者，先視為禁區。 無安全路就改戰術：退回、改入口或建立人工安全路徑。</p>\n<p>把提醒變成固定程序，現場才真正做得到。</p>","audio":"audio/29.mp3","audioMediaType":"audio/mpeg"},{"number":30,"key":"30","title":"採光罩與浪板辨識提醒","sourceTextName":"30.txt","sourceAudioName":"30.mp3","html":"<p>看到以下特徵時，應提高警覺：</p>\n<p>半透明或透光。 顏色泛黃、泛綠或不均。 表面老化、髒污、青苔或脆化。 沒有明顯固定螺絲線。 板面有彈性、晃動或空洞感。 與鐵皮浪板混合排列。 位於門廊、雨遮、頂樓加蓋或入口前方。</p>\n<p>如果無法確認是不是採光罩，就不要賭它可以承重。</p>\n<p>可疑材質，先當不可踩。</p>","audio":"audio/30.mp3","audioMediaType":"audio/mpeg"},{"number":31,"key":"31","title":"如果重來一次，哪裡可以中斷事故","sourceTextName":"31.txt","sourceAudioName":"31.mp3","html":"<p>重新檢視高處墜落事故，可以發現通常有不只一個中斷點。</p>\n<p>上梯前，先觀察上方入口前方的材質。 到達梯頂後，先停下確認立足點。 離開梯子前，先用工具探測。 發現疑似採光罩或浪板時，不直接踩踏。 無法確認支撐時，改選入口或建立安全路徑。 帶隊人員再次確認前方材質、支撐與退路。</p>\n<p>事故檢討的目的，不是責備個人，而是讓下一次任務有更好的程序。</p>\n<p>中斷事故鏈，就是保護隊員。</p>","audio":"audio/31.mp3","audioMediaType":"audio/mpeg"},{"number":32,"key":"32","title":"情境判斷練習","sourceTextName":"32.txt","sourceAudioName":"32.mp3","html":"<p>請判斷以下情境是否安全：</p>\n<p>一、梯頂外側是半透明浪板，但距離入口只有一步，可以快速跨過。</p>\n<p>二、屋面看起來完整，但沒有固定螺絲線，也看不出下方支撐。</p>\n<p>三、熱顯像儀顯示前方板面溫度異常升高，但外觀看起來沒有破損。</p>\n<p>四、無法辨識材質時，先用工具探測，必要時退回並建立安全路徑。</p>\n<p>五、穿著完整 PPE，就可以短暫踩踏採光罩。</p>\n<p>正確觀念是：距離短不代表風險低，裝備完整也不代表材質安全。</p>","audio":"audio/32.mp3","audioMediaType":"audio/mpeg"},{"number":33,"key":"33","title":"每一次停下來，都是為了全員回家","sourceTextName":"33.txt","sourceAudioName":"33.mp3","html":"<p>高處作業的危險，常常藏在看似平常的一步。</p>\n<p>本書從一件高處墜落事故出發，不是為了責備，而是為了建立更穩定、更容易執行的安全程序。</p>\n<p>記住五句話： 到梯頂，先停步。 腳出去，先探路。 材質不明，當禁區。 無探測，不跨步。 沒有路，先建路。</p>\n<p>每一次停下來確認，不是拖慢任務，而是讓任務可以繼續，讓每一位隊員都能平安回家。</p>","audio":"audio/33.mp3","audioMediaType":"audio/mpeg"}];
-    const book = document.getElementById("book");
-    const toc = document.getElementById("toc");
-    const chapterSelect = document.getElementById("chapterSelect");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const pageIndicator = document.getElementById("pageIndicator");
-    const fontMinus = document.getElementById("fontMinus");
-    const fontPlus = document.getElementById("fontPlus");
-    let currentIndex = -1;
-    let fontSize = 20;
-
-    function stopAllAudio() {
-      document.querySelectorAll("audio").forEach(audio => audio.pause());
-    }
-    function escapeHtml(value) {
-      return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    }
-    function buildBook() {
-      chapters.forEach((chapter, index) => {
-        const article = document.createElement("article");
-        article.className = "chapter";
-        article.id = "chapter-" + index;
-        const audioHtml = chapter.audio
-          ? `<div class="audio-card"><audio controls preload="none"><source src="${chapter.audio}" type="${chapter.audioMediaType || "audio/mpeg"}">您的瀏覽器不支援音訊播放。</audio></div>`
-          : "";
-        article.innerHTML = `
-          <header class="chapter-header">
-            <h1 class="chapter-title">${escapeHtml(chapter.title)}</h1>
-          </header>
-          ${audioHtml}
-          <div class="chapter-body">${chapter.html}</div>
-        `;
-        book.appendChild(article);
-
-        const tocButton = document.createElement("button");
-        tocButton.type = "button";
-        tocButton.textContent = `${index + 1}. ${chapter.title}`;
-        tocButton.addEventListener("click", () => showChapter(index));
-        toc.appendChild(tocButton);
-
-        const option = document.createElement("option");
-        option.value = String(index);
-        option.textContent = `${index + 1}. ${chapter.title}`;
-        chapterSelect.appendChild(option);
-      });
-
-      const coverOption = document.createElement("option");
-      coverOption.value = "-1";
-      coverOption.textContent = "封面";
-      chapterSelect.insertBefore(coverOption, chapterSelect.firstChild);
-      chapterSelect.value = "-1";
-    }
-    function showChapter(index) {
-      stopAllAudio();
-      currentIndex = index;
-      document.querySelectorAll(".cover, .chapter").forEach(el => el.classList.remove("active"));
-      document.querySelectorAll(".toc button").forEach((button, i) => button.classList.toggle("active", i === index));
-      if (index < 0) {
-        document.getElementById("cover").classList.add("active");
-        pageIndicator.textContent = "封面";
-        chapterSelect.value = "-1";
-      } else {
-        document.getElementById("chapter-" + index).classList.add("active");
-        pageIndicator.textContent = `${index + 1} / ${chapters.length}`;
-        chapterSelect.value = String(index);
-      }
-      prevBtn.disabled = index <= -1;
-      nextBtn.disabled = index >= chapters.length - 1;
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-    prevBtn.addEventListener("click", () => { if (currentIndex > -1) showChapter(currentIndex - 1); });
-    nextBtn.addEventListener("click", () => { if (currentIndex < chapters.length - 1) showChapter(currentIndex + 1); });
-    chapterSelect.addEventListener("change", () => showChapter(Number(chapterSelect.value)));
-    fontMinus.addEventListener("click", () => {
-      fontSize = Math.max(16, fontSize - 2);
-      document.documentElement.style.setProperty("--font-size", fontSize + "px");
-    });
-    fontPlus.addEventListener("click", () => {
-      fontSize = Math.min(32, fontSize + 2);
-      document.documentElement.style.setProperty("--font-size", fontSize + "px");
-    });
-    document.addEventListener("keydown", event => {
-      if (event.key === "ArrowRight") nextBtn.click();
-      if (event.key === "ArrowLeft") prevBtn.click();
-    });
-    buildBook();
-    showChapter(-1);
-  </script>
+<div class="app">
+<header class="header"><button id="first">⏮</button><button id="prevTop">上一頁</button><button id="nextTop">下一頁</button><div class="title">零墜落戰術：消防高處作業安全指引</div><select id="pageSelect" title="直接選擇頁面"></select><button id="fontMinus">A-</button><button id="fontPlus">A+</button><button id="zoomOut">－</button><button id="zoomReset">100%</button><button id="zoomIn">＋</button><button id="last">⏭</button></header>
+<main class="stage" id="stage"><button class="nav prev" id="prev">‹</button><div class="spread"><div class="gutter" id="gutter"></div><section class="page cover" id="cover"><div class="coverbox"><div class="cover-label">訓練教材</div><div class="cover-title">零墜落戰術：消防高處作業安全指引</div><div class="cover-sub">安全管理 × 零墜落× 電子書</div><div class="cover-author">hoshu</div></div></section><section class="page left" id="left"><div class="pic-inner"><div class="pic-frame" id="picFrame"><img id="pic"></div></div><div class="pageno" id="picNo"></div></section><section class="page right" id="right"><div class="text-inner"><h1 class="story-title" id="storyTitle"></h1><div class="story-body" id="storyBody"></div></div><div class="pageno" id="textNo"></div></section><div class="flip" id="flip"><div id="flipContent"></div></div></div><button class="nav nextbtn" id="next">›</button><div class="msg" id="msg"></div></main>
+<footer class="footer noaudio" id="footer"><button class="play" id="play">▶ 播放</button><button class="replay" id="replay">重播</button><audio class="audio" id="audio" controls preload="metadata"></audio><div class="info" id="info"></div></footer>
+</div>
+<script>
+const pages=[{"number": 1, "image": "images/001.png", "title": "鐵皮屋頂救災墜落預防", "body": "<p>影片教學與表單測驗</p>\n<p>鐵皮屋、採光罩及加蓋屋頂在救災現場具有高度墜落風險。高溫弱化、材質脆化或支撐位置不明，都可能造成踩空意外。</p>\n<p>本教材以「不盲目跨步」為核心原則，提醒消防人員執行高處作業時，應先確認固定螺絲線、骨架或實體支撐位置，並運用「退、探、建」建立安全行動路徑。</p>\n<p>影片教學</p>\n<p>請先觀看教學影片，了解鐵皮屋頂、採光罩等高處環境的常見風險，以及現場移動與路徑判斷重點。</p>\n<p>影片連結： <a href=\"https://youtu.be/E8CL88yEBrU\" target=\"_blank\" rel=\"noopener noreferrer\">https://youtu.be/E8CL88yEBrU</a></p>\n<p>表單測驗</p>\n<p>完成影片觀看後，請填寫表單測驗，協助確認學習成效，並強化高處救災安全觀念。</p>\n<p>測驗連結： <a href=\"https://script.google.com/macros/s/AKfycby4x3zPII4OIWnzPcX4t7gxE0CAPhkROWhGGJ7Kt7IK9qdGbVd0GxtTPeV0by4F1b0d/exec\" target=\"_blank\" rel=\"noopener noreferrer\">https://script.google.com/macros/s/AKfycby4x3zPII4OIWnzPcX4t7gxE0CAPhkROWhGGJ7Kt7IK9qdGbVd0GxtTPeV0by4F1b0d/exec</a></p>\n<p>重點提醒</p>\n<p>不盲目跨步，是高處救災的第一道防線。 先退、再探、後建立路徑，確保人員安全再執行任務。</p>", "audio": "", "audioType": "", "segments": []}, {"number": 2, "image": "images/002.png", "title": "02｜從事故學會避免下一次墜落", "body": "<p>本書從一件住宅火警高處墜落案例出發，整理消防人員在鐵皮構造、採光罩、浪板、頂樓加蓋與其他未知踩踏面作業時，最容易忽略的風險。</p>\n<p>核心不是記住某一起事故，而是建立可重複使用的安全判斷程序：先辨識材質，再確認支撐；先探測路徑，再移動身體；無法確認時，就不要把重量交給未知表面。</p>\n<p>本書要反覆提醒五件事： 到梯頂，先停步。 腳出去，先探路。 材質不明，當禁區。 無探測，不跨步。 沒有路，先建路。</p>", "audio": "audio/002.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 3, "image": "images/003.png", "title": "03｜住宅火警事故經過", "body": "<p>某次住宅火警，現場有頂樓加蓋鐵皮構造與雜物燃燒。搶救過程中，因原有入口受阻，消防人員改由梯具前往較高樓層尋找進入路線。</p>\n<p>人員到達上方後，行經接近入口的採光罩區域，板材突然破裂，造成墜落受傷。後續現場持續進行火勢控制與人員救護。</p>\n<p>這起事故提醒我們：高處墜落風險常發生在任務初期，尤其是急著建立入口、改變進入路線，或準備從梯頂踏出第一步的時候。</p>", "audio": "audio/003.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 4, "image": "images/004.png", "title": "04｜危險常在入口附近", "body": "<p>高處危險不一定出現在屋頂深處，也可能就在入口、門廊、雨遮或梯頂旁邊。</p>\n<p>當一樓入口無法使用，消防人員可能改由架梯上樓、翻窗或從其他高處位置進入。但只要梯頂外側是鐵皮、浪板、採光罩、雨遮或不明板材，就不能直接把它視為安全立足點。</p>\n<p>最容易被忽略的，往往不是上梯本身，而是離開梯子後的第一步。</p>\n<p>梯子讓你上去，不代表你可以直接走出去。</p>", "audio": "audio/004.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 5, "image": "images/005.png", "title": "05｜採光罩可能瞬間失效", "body": "<p>採光罩、塑膠浪板或老化透明板材，主要功能是採光或遮蔽，不應視為可供人員踩踏的承重面。</p>\n<p>當消防人員把身體與裝備重量交給這類板材時，板材可能不是慢慢變形，而是突然破裂，形成大面積孔洞，使人員直接跌落到下方空間。</p>\n<p>消防人員穿著防護裝備並攜帶器材時，總重量更高，風險也會隨之增加。</p>\n<p>採光罩不是立足點，也不是臨時平台。不要用身體測試板材強度。</p>", "audio": "audio/005.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 6, "image": "images/006.png", "title": "06｜梯頂到入口的幾步最危險", "body": "<p>很多人會注意梯具是否穩固，卻容易忽略梯頂外側的水平移動路徑。</p>\n<p>真正的危險，可能就在離開梯子後、前往門口或窗戶的短短幾步。如果前方是採光罩、浪板、雨遮或不明材質，即使距離很短，也可能在第一步就發生墜落。</p>\n<p>到達梯頂後，第一個動作不應是立刻踏出去，而是停下來確認前方材質、支撐位置與下一個安全立足點。</p>\n<p>到梯頂，先停步；腳出去，先探路。</p>", "audio": "audio/006.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 7, "image": "images/007.png", "title": "07｜事故鏈怎麼形成", "body": "<p>高處墜落通常不是單一原因造成，而是一連串條件累積的結果。</p>\n<p>入口受阻，改由梯具上樓。 前方是鐵皮構造與採光罩混合區。 任務壓力升高，急著建立進入路線。 踩踏材質與下方支撐沒有完全確認。 人員將重量移到未知板面。 板材破裂，發生墜落。</p>\n<p>事故不是從板材破裂那一刻才開始，而是從未知踩踏面沒有被確認時，風險就已經開始累積。</p>", "audio": "audio/007.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 8, "image": "images/008.png", "title": "08｜事故鏈可以在哪裡中斷", "body": "<p>高處墜落並不是只能在最後一刻避免。只要在其中任何一個環節停下來重新判斷，就有機會中斷事故鏈。</p>\n<p>上梯前，先觀察上方是否有採光罩、浪板或不明板材。 到達梯頂後，先確認第一個立足點。 腳踏出去前，先用工具探測。 看見半透明、塑膠、浪板或無法辨識的材質，先視為禁區。 無法確認支撐時，改選入口或建立人工安全路徑。</p>\n<p>安全不是靠運氣，而是靠每一步確認。</p>", "audio": "audio/008.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 9, "image": "images/009.png", "title": "09｜五句安全金律", "body": "<p>本書所有高處作業觀念，可以濃縮成五句安全金律：</p>\n<p>到梯頂，先停步。 腳出去，先探路。 材質不明，當禁區。 無探測，不跨步。 沒有路，先建路。</p>\n<p>這五句不是口號，而是現場行動順序。當火場環境緊迫、視線不佳、任務壓力升高時，更需要用固定程序取代直覺反應。</p>", "audio": "audio/009.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 10, "image": "images/010.png", "title": "10｜看起來像屋面，不代表能承重", "body": "<p>採光罩、塑膠浪板與鐵皮浪板，外觀可能非常相似，也可能混合安裝在同一個屋面。</p>\n<p>外型相似，不代表材質相同；材質相同，也不代表支撐方式相同；表面看起來完整，更不代表能承受消防人員與裝備的重量。</p>\n<p>判斷重點不是「看起來像不像鐵皮」，而是腳下是否有可以確認的承重結構。</p>\n<p>看不出來，就不要踩。</p>", "audio": "audio/010.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 11, "image": "images/011.png", "title": "11｜採光罩是隱形陷阱", "body": "<p>採光罩常出現在鐵皮屋、頂樓加蓋、廠房、門廊、雨遮與住宅增建空間。它的用途是採光，不是承重。</p>\n<p>在火場中，採光罩可能被煙霧、灰塵、青苔、水漬、雜物或光線影響而難以辨識。當採光罩與鐵皮浪板混合排列時，更容易被誤判成可以通行的屋面。</p>\n<p>只要看到半透明、塑膠、老化或材質不明的板面，就應提高警覺。</p>\n<p>採光罩不是路，是陷阱。</p>", "audio": "audio/011.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 12, "image": "images/012.png", "title": "12｜火場會放大誤判", "body": "<p>火場不是一般環境。濃煙、熱氣、水霧、反光、照明不足、射水後濕滑與雜物遮蔽，都可能讓視覺判斷變得不可靠。</p>\n<p>任務越急，人員越容易把「看起來可以走」誤判成「真的可以承重」。尤其當入口受阻、搶救進度受限或必須快速改變路線時，更容易省略確認步驟。</p>\n<p>火場中最危險的，不一定是看得見的火，也可能是你以為安全的那一步。</p>\n<p>現場越急，越要停下來確認。</p>", "audio": "audio/012.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 13, "image": "images/013.png", "title": "13｜高溫會削弱結構", "body": "<p>鐵皮、浪板、橫樑與支撐構件在火場高溫下可能變形或弱化。即使外觀看起來完整，下方支撐能力也可能已經下降。</p>\n<p>因此，高處作業不能只靠肉眼判斷，還要注意火勢位置、受熱時間、煙流、熱異常與結構變形跡象。</p>\n<p>如果前方區域正受到高溫影響，就應重新評估是否適合通行，必要時退回已確認的安全位置。</p>\n<p>表面完整，不代表結構安全。</p>", "audio": "audio/013.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 14, "image": "images/014.png", "title": "14｜鐵皮多半只是覆蓋物", "body": "<p>鐵皮屋頂或鐵皮加蓋的板面，通常只是覆蓋材料，不是主要承重結構。</p>\n<p>真正承受重量的，是下方的鋼柱、橫樑、檁條或其他支撐系統。如果人員把重量放在板面中央，而下方沒有可靠支撐，就可能發生變形、破裂或踩空。</p>\n<p>移動時應把注意力放在「下方有沒有結構」，而不是只看表面是否完整。</p>\n<p>不要把重量交給表面，要交給結構。</p>", "audio": "audio/014.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 15, "image": "images/015.png", "title": "15｜固定螺絲線是重要線索", "body": "<p>鐵皮屋面上的固定螺絲，常可以作為判斷下方支撐位置的線索。螺絲排列方向，通常與橫樑、檁條或其他固定構件有關。</p>\n<p>當必須在鐵皮構造附近移動時，可以利用螺絲線協助判斷可能的支撐位置，並搭配目視、工具探測與現場條件綜合確認。</p>\n<p>但要注意，螺絲線只能作為線索，不能當成絕對安全保證。</p>\n<p>找螺絲線，就是找可能的支撐線。</p>", "audio": "audio/015.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 16, "image": "images/016.png", "title": "16｜無螺絲、無支撐、無確認，就當禁區", "body": "<p>如果一個區域沒有明顯固定螺絲、看不出下方支撐、材質不明，或表面疑似採光罩、塑膠浪板，就不應直接踩踏。</p>\n<p>不要用腳去確認。 不要因為距離短就冒險跨越。 不要因為任務緊急就省略判斷。 不要因為表面完整就相信它可以承重。</p>\n<p>只要無法確認，就先當成禁區。</p>", "audio": "audio/016.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 17, "image": "images/017.png", "title": "17｜靠主結構，不走薄弱區", "body": "<p>在鐵皮屋、頂樓加蓋或高處平台移動時，路線應優先靠近可以辨識的主結構。</p>\n<p>主結構可能包括鋼柱、外牆、樑柱交會處或其他明確支撐位置。相較之下，板面中央、採光罩、浪板、臨時加蓋、老舊雨遮與支撐不明區域，都屬於高風險位置。</p>\n<p>路線判斷不能只看哪裡最近，而要看哪裡有可靠結構。</p>\n<p>不是哪裡近就走哪裡，而是哪裡有結構才走哪裡。</p>", "audio": "audio/017.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 18, "image": "images/018.png", "title": "18｜無探測，不跨步", "body": "<p>當前方踏點不明、材質不明或支撐不明時，不要直接跨步。</p>\n<p>正確順序是： 先停。 先看。 先確認。 先用工具探測。 確認後，再移動身體重量。</p>\n<p>可以利用火斧、撬棒、手電筒或其他適當器材，先對前方踏點進行輕敲、施壓或觸探，再決定是否移動。</p>\n<p>腳不要先出去，工具要先出去。</p>", "audio": "audio/018.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 19, "image": "images/019.png", "title": "19｜工具是觸覺延伸", "body": "<p>火斧、撬棒、手電筒或其他適當器材，不只是破壞工具，也可以成為高處作業時的觸覺延伸。</p>\n<p>移動前，可以先用工具輕敲、施壓或觸探前方，確認是否有空洞感、異常彈性、破裂聲、鬆動或支撐不足。</p>\n<p>如果工具探測已出現異常，就不能再用身體重量測試。</p>\n<p>工具先出去，是為了讓危險先被發現，而不是讓人員先承受後果。</p>", "audio": "audio/019.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 20, "image": "images/020.png", "title": "20｜一步一確認，不搶那一步", "body": "<p>火場搶救講求速度，但速度不能建立在未知風險上。高處作業真正有效率的推進，是每一步都知道自己踩在哪裡。</p>\n<p>搶一步，可能造成隊員墜落受傷。 搶一步，可能讓原本的任務被迫中斷。 搶一步，也可能讓救災行動變成救援自己人。</p>\n<p>一步一確認，看似比較慢，其實是在維持整體戰力。</p>\n<p>慢一步確認，是為了不中斷任務。</p>", "audio": "audio/020.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 21, "image": "images/021.png", "title": "21｜低姿移動，分散重量", "body": "<p>在鐵皮屋頂、受損樓板、採光罩附近或不穩定板面上移動時，不宜直立快速行走。</p>\n<p>採取較低姿勢，可以降低重心、增加身體接觸面積，並減少重量集中在單一位置的情形。當環境濕滑或結構不穩時，也較有利於控制身體平衡。</p>\n<p>但低姿移動不能取代路徑確認。前方材質與支撐仍然必須先確認。</p>\n<p>能低不要高，能分散不要集中。</p>", "audio": "audio/021.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 22, "image": "images/022.png", "title": "22｜TIC 不只是找火點", "body": "<p>熱顯像儀除了搜尋火點，也可以協助觀察屋面、牆面、夾層或結構附近是否出現熱異常。</p>\n<p>如果某一區域溫度明顯升高，代表下方可能有火勢接近，或結構正在受到高溫影響。即使表面看起來沒有破損，也不能因此認定它仍然具備安全承載能力。</p>\n<p>熱異常應被視為重新評估路徑的重要警訊。</p>\n<p>高溫不是只有火點，也是結構警訊。</p>", "audio": "audio/022.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 23, "image": "images/023.png", "title": "23｜高溫區就是警戒區", "body": "<p>看到熱異常區時，不只要問「火在哪裡」，還要問「這裡還能不能安全通行」。</p>\n<p>外觀看似完整的鐵皮、浪板或樓板，如果下方持續受熱，支撐能力可能已經下降。這時應重新判斷路徑，必要時退回安全點。</p>\n<p>高溫區、煙竄區、變形區、異音區與焦黑區，都應提高警覺。</p>\n<p>看見熱異常，就要重新判斷路徑。</p>", "audio": "audio/023.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 24, "image": "images/024.png", "title": "24｜用梯具建立人工安全路徑", "body": "<p>當現場板材不明、支撐不明、踩踏面不可靠時，不應要求人員直接跨越。</p>\n<p>可以視現場條件，利用梯具或其他適當器材建立人工安全路徑，讓重量跨越多個較可靠的支撐位置，減少人員直接踩踏未知板面的機會。</p>\n<p>沒有安全路，就先建路。 建好路，再作業。 作業後，沿已確認的安全路徑撤離。</p>\n<p>不要硬走未知區，要建立受控路徑。</p>", "audio": "audio/024.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 25, "image": "images/025.png", "title": "25｜架梯上樓後，還有第二段安全路徑", "body": "<p>架梯上樓只完成垂直移動，不代表水平移動已經安全。</p>\n<p>從梯頂到門口、窗戶、平台或作業位置之間，仍可能存在採光罩、浪板、雨遮、鐵皮加蓋或其他不明材質。</p>\n<p>因此，到達梯頂後仍要重新確認前方第一個立足點，必要時停下、探測、請求協助或建立第二段安全路徑。</p>\n<p>梯頂不是安全點，確認後的立足點才是安全點。</p>", "audio": "audio/025.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 26, "image": "images/026.png", "title": "26｜PPE 是最後防線，不是通行許可", "body": "<p>消防衣、消防帽、消防鞋、手套與空氣呼吸器，是消防人員執行任務時的重要防護裝備。</p>\n<p>但完整的個人防護裝備，不能讓採光罩變成可承重平台，也不能讓受熱、老化或支撐不足的板面恢復安全。</p>\n<p>PPE 的作用，是在風險發生時提供最後一層保護，而不是取代路徑判斷、結構確認與安全程序。</p>\n<p>PPE 保護你，但不替你判斷路。</p>", "audio": "audio/026.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 27, "image": "images/027.png", "title": "27｜退、探、建", "body": "<p>當完全找不到安全路徑，或不確定前方是否能通行時，不要硬闖。</p>\n<p>可以用三個字記住處理順序：退、探、建。</p>\n<p>退：退回已確認的安全立足點。 探：利用目視、照明、工具或熱顯像儀重新確認前方狀況。 建：必要時利用梯具或其他器材建立人工安全路徑。</p>\n<p>退不是放棄，而是重新取得安全主導權。</p>", "audio": "audio/027.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 28, "image": "images/028.png", "title": "28｜帶隊官要問的三句話", "body": "<p>高處遇到未知踩踏面時，帶隊官、指揮人員或前進人員都可以先問三句話：</p>\n<p>第一，前方材質是什麼？ 第二，下方有沒有支撐？ 第三，退路在哪裡？</p>\n<p>如果其中任何一題答不出來，就不應直接推進。</p>\n<p>這三句話可以反覆用在架梯上樓、屋頂作業、頂樓加蓋、鐵皮雨遮、夾層或採光罩附近。</p>\n<p>問清楚，再前進；答不出來，就先停。</p>", "audio": "audio/028.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 29, "image": "images/029.png", "title": "29｜架梯上樓安全檢核", "body": "<p>架梯上樓時，可以依序做以下檢核：</p>\n<p>上梯前先看：目標位置前方是否有採光罩、浪板、雨遮或不明材質？ 梯頂先停：不要一到梯頂就直接踏出。 腳出前先探：用工具確認第一個立足點與下一步路徑。 材質不明不踩：半透明、塑膠、老化、髒污或支撐不明者，先視為禁區。 無安全路就改戰術：退回、改入口或建立人工安全路徑。</p>\n<p>把提醒變成固定程序，現場才真正做得到。</p>", "audio": "audio/029.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 30, "image": "images/030.png", "title": "30｜採光罩與浪板辨識提醒", "body": "<p>看到以下特徵時，應提高警覺：</p>\n<p>半透明或透光。 顏色泛黃、泛綠或不均。 表面老化、髒污、青苔或脆化。 沒有明顯固定螺絲線。 板面有彈性、晃動或空洞感。 與鐵皮浪板混合排列。 位於門廊、雨遮、頂樓加蓋或入口前方。</p>\n<p>如果無法確認是不是採光罩，就不要賭它可以承重。</p>\n<p>可疑材質，先當不可踩。</p>", "audio": "audio/030.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 31, "image": "images/031.png", "title": "31｜如果重來一次，哪裡可以中斷事故", "body": "<p>重新檢視高處墜落事故，可以發現通常有不只一個中斷點。</p>\n<p>上梯前，先觀察上方入口前方的材質。 到達梯頂後，先停下確認立足點。 離開梯子前，先用工具探測。 發現疑似採光罩或浪板時，不直接踩踏。 無法確認支撐時，改選入口或建立安全路徑。 帶隊人員再次確認前方材質、支撐與退路。</p>\n<p>事故檢討的目的，不是責備個人，而是讓下一次任務有更好的程序。</p>\n<p>中斷事故鏈，就是保護隊員。</p>", "audio": "audio/031.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 32, "image": "images/032.png", "title": "32｜情境判斷練習", "body": "<p>請判斷以下情境是否安全：</p>\n<p>一、梯頂外側是半透明浪板，但距離入口只有一步，可以快速跨過。</p>\n<p>二、屋面看起來完整，但沒有固定螺絲線，也看不出下方支撐。</p>\n<p>三、熱顯像儀顯示前方板面溫度異常升高，但外觀看起來沒有破損。</p>\n<p>四、無法辨識材質時，先用工具探測，必要時退回並建立安全路徑。</p>\n<p>五、穿著完整 PPE，就可以短暫踩踏採光罩。</p>\n<p>正確觀念是：距離短不代表風險低，裝備完整也不代表材質安全。</p>", "audio": "audio/032.mp3", "audioType": "audio/mpeg", "segments": []}, {"number": 33, "image": "images/033.png", "title": "33｜每一次停下來，都是為了全員回家", "body": "<p>高處作業的危險，常常藏在看似平常的一步。</p>\n<p>本書從一件高處墜落事故出發，不是為了責備，而是為了建立更穩定、更容易執行的安全程序。</p>\n<p>記住五句話： 到梯頂，先停步。 腳出去，先探路。 材質不明，當禁區。 無探測，不跨步。 沒有路，先建路。</p>\n<p>每一次停下來確認，不是拖慢任務，而是讓任務可以繼續，讓每一位隊員都能平安回家。</p>", "audio": "audio/033.mp3", "audioType": "audio/mpeg", "segments": []}];const cover=document.getElementById('cover'),left=document.getElementById('left'),right=document.getElementById('right'),gutter=document.getElementById('gutter'),pic=document.getElementById('pic'),picFrame=document.getElementById('picFrame'),storyTitle=document.getElementById('storyTitle'),storyBody=document.getElementById('storyBody'),picNo=document.getElementById('picNo'),textNo=document.getElementById('textNo'),footer=document.getElementById('footer'),audio=document.getElementById('audio'),play=document.getElementById('play'),replay=document.getElementById('replay'),info=document.getElementById('info'),msg=document.getElementById('msg'),flip=document.getElementById('flip'),flipContent=document.getElementById('flipContent'),stage=document.getElementById('stage'),pageSelect=document.getElementById('pageSelect');let idx=-1,anim=false,fontSize=22,zoom=1,panX=0,panY=0,isPan=false,sx=0,sy=0,spx=0,spy=0,tx=0,ty=0,tt=0;function shortTitle(t){t=String(t||'').replace(/\s+/g,' ').trim();return t.length>30?t.slice(0,30)+'…':t}function buildPageSelect(){pageSelect.innerHTML='';const coverOpt=document.createElement('option');coverOpt.value='-1';coverOpt.textContent='封面';pageSelect.appendChild(coverOpt);pages.forEach((p,i)=>{const opt=document.createElement('option');opt.value=String(i);opt.textContent=`第 ${i+1} 頁：${shortTitle(p.title||'未命名')}`;pageSelect.appendChild(opt)})}
+function show(t){msg.textContent=t;msg.classList.add('show');clearTimeout(show.timer);show.timer=setTimeout(()=>msg.classList.remove('show'),1400)}function stopAudio(){audio.pause();audio.removeAttribute('src');audio.load();play.textContent='▶ 播放'}function btnAudio(){play.textContent=audio.paused?'▶ 播放':'❚❚ 暫停'}function setupAudio(){stopAudio();if(idx<0||!pages[idx]||!pages[idx].audio){footer.classList.add('noaudio');return}footer.classList.remove('noaudio');audio.src=pages[idx].audio}function applyZoom(){picFrame.style.setProperty('--zoom',zoom);picFrame.style.setProperty('--pan-x',panX+'px');picFrame.style.setProperty('--pan-y',panY+'px');picFrame.classList.toggle('zoomed',zoom>1);document.getElementById('zoomReset').textContent=Math.round(zoom*100)+'%'}function resetZoom(){zoom=1;panX=0;panY=0;applyZoom()}function changeZoom(d){zoom=Math.max(1,Math.min(3,Number((zoom+d).toFixed(2))));if(zoom===1){panX=0;panY=0}applyZoom()}function clamp(){if(zoom<=1){panX=0;panY=0;return}const mx=260*(zoom-1),my=360*(zoom-1);panX=Math.max(-mx,Math.min(mx,panX));panY=Math.max(-my,Math.min(my,panY))}
+function updateHighlight(){if(idx<0||!pages[idx]||!pages[idx].segments)return;const segs=pages[idx].segments||[],t=audio.currentTime;let active=-1;for(let i=0;i<segs.length;i++){const s=Number(segs[i].start),e=Number(segs[i].end);if(t>=s&&t<e){active=i;break}}document.querySelectorAll('.sentence').forEach((el,i)=>{el.classList.toggle('active',i===active);el.classList.toggle('done',active>=0&&i<active)});if(active>=0){const el=storyBody.querySelector('.sentence[data-index="'+active+'"]');if(el)el.scrollIntoView({behavior:'smooth',block:'center'})}}
+function getDisplayedPageNumbers(storyIndex){const leftPage=storyIndex*2+1;const rightPage=leftPage+1;return {left:leftPage,right:rightPage}}
+function render(){if(pageSelect)pageSelect.value=String(idx);const isCover=idx<0;cover.style.display=isCover?'block':'none';left.style.display=isCover?'none':'';right.style.display=isCover?'none':'';gutter.style.display=isCover?'none':'';document.getElementById('prev').disabled=idx<0;document.getElementById('prevTop').disabled=idx<0;document.getElementById('next').disabled=idx>=pages.length-1;document.getElementById('nextTop').disabled=idx>=pages.length-1;if(isCover){info.textContent='封面';footer.classList.add('noaudio');stopAudio();return}const p=pages[idx];const pageNo=getDisplayedPageNumbers(idx);pic.src=p.image;storyTitle.textContent=p.title;storyBody.innerHTML=p.body;picNo.textContent=pageNo.left;textNo.textContent=pageNo.right;info.textContent=`第 ${idx+1} / ${pages.length} 則故事`;setupAudio();applyZoom()}function clearFlip(){flip.className='flip';flipContent.innerHTML=''}function flipHtml(dir){
+ if(idx<0)return cover.innerHTML;
+ // 這個工具的「一頁」其實是一個左圖右文 spread：左半邊是圖、右半邊是文。
+ // 下一頁：翻目前右半邊。上一頁：翻目標頁的左半邊，不把它當成真正的左右兩個頁碼。
+ if(dir>0)return right.innerHTML;
+ return window.matchMedia('(max-width:760px)').matches?right.innerHTML:left.innerHTML
+}
+function go(i,dir=1,a=true){if(anim)return;if(i<-1||i>=pages.length){show(i<-1?'已經是封面':'已經是最後一頁');return}if(i===idx)return;stopAudio();resetZoom();clearFlip();if(!a){idx=i;render();stage.classList.add('soft-back');setTimeout(()=>stage.classList.remove('soft-back'),180);return}anim=true;const turningHtml=flipHtml(dir);flipContent.innerHTML=turningHtml;idx=i;render();void flip.offsetWidth;flip.classList.add(dir>0?'next':'prev');setTimeout(()=>{clearFlip();anim=false},dir>0?660:460)}function next(){go(idx+1,1,true)}function prev(){go(idx-1,-1,true)}
+document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;document.getElementById('nextTop').onclick=next;document.getElementById('prevTop').onclick=prev;document.getElementById('first').onclick=()=>go(-1,-1,true);document.getElementById('last').onclick=()=>go(pages.length-1,1,true);pageSelect.onchange=()=>{const target=Number(pageSelect.value);go(target,target>idx?1:-1,true)};document.getElementById('zoomOut').onclick=()=>changeZoom(-.25);document.getElementById('zoomIn').onclick=()=>changeZoom(.25);document.getElementById('zoomReset').onclick=resetZoom;document.getElementById('fontMinus').onclick=()=>{fontSize=Math.max(16,fontSize-2);document.documentElement.style.setProperty('--font-size',fontSize+'px')};document.getElementById('fontPlus').onclick=()=>{fontSize=Math.min(34,fontSize+2);document.documentElement.style.setProperty('--font-size',fontSize+'px')};
+play.onclick=()=>{if(idx<0||!pages[idx]||!pages[idx].audio){show('這一頁沒有音檔');return}if(audio.paused){const r=audio.play();if(r&&r.then)r.then(btnAudio).catch(()=>show('請再點一次播放'));else btnAudio()}else{audio.pause();btnAudio()}};replay.onclick=()=>{if(idx<0||!pages[idx]||!pages[idx].audio)return;audio.currentTime=0;audio.play()};audio.addEventListener('timeupdate',updateHighlight);storyBody.addEventListener('click',e=>{if(e.target.closest('a'))return;const el=e.target.closest('.sentence');if(!el||idx<0||!pages[idx])return;const seg=pages[idx].segments[Number(el.dataset.index)];if(!seg)return;audio.currentTime=Number(seg.start||0);audio.play()});audio.onplay=btnAudio;audio.onpause=btnAudio;audio.onended=btnAudio;
+picFrame.addEventListener('mousedown',e=>{if(zoom<=1)return;isPan=true;sx=e.clientX;sy=e.clientY;spx=panX;spy=panY;e.preventDefault()});document.addEventListener('mousemove',e=>{if(!isPan)return;panX=spx+(e.clientX-sx);panY=spy+(e.clientY-sy);clamp();applyZoom()});document.addEventListener('mouseup',()=>isPan=false);picFrame.addEventListener('touchstart',e=>{if(zoom<=1||!e.touches.length)return;isPan=true;sx=e.touches[0].clientX;sy=e.touches[0].clientY;spx=panX;spy=panY},{passive:true});picFrame.addEventListener('touchmove',e=>{if(!isPan||zoom<=1||!e.touches.length)return;panX=spx+(e.touches[0].clientX-sx);panY=spy+(e.touches[0].clientY-sy);clamp();applyZoom();e.preventDefault()},{passive:false});picFrame.addEventListener('touchend',()=>isPan=false,{passive:true});
+stage.addEventListener('touchstart',e=>{if(!e.touches.length)return;tx=e.touches[0].clientX;ty=e.touches[0].clientY;tt=Date.now()},{passive:true});stage.addEventListener('touchend',e=>{if(!e.changedTouches.length||zoom>1)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>54&&Math.abs(dx)>Math.abs(dy)*1.35&&Date.now()-tt<900){dx<0?next():prev()}},{passive:true});document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')prev();if(e.key==='ArrowRight')next();if(e.key==='Home')go(-1,-1,false);if(e.key==='End')go(pages.length-1,1,false);if(e.key===' '){e.preventDefault();play.click()}if(e.key==='+'||e.key==='=')changeZoom(.25);if(e.key==='-'||e.key==='_')changeZoom(-.25);if(e.key==='0')resetZoom()});buildPageSelect();render();
+</script>
 </body>
 </html>
